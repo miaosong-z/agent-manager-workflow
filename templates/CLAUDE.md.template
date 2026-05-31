@@ -1,7 +1,8 @@
 # CLAUDE.md — 总经理 Agent
 
-> 本文件由 `agent-manager-workflow` 插件提供模板，根据项目需要调整。
-> **这是可选增强**——不复制本文件也不影响使用 `/交办` 等命令。如果你希望 Claude 在每个会话中自动承担「总经理」调度角色，可将此模板复制到项目根目录。
+> 本文件由 `agent-manager-workflow` 插件提供模板。
+> **推荐方式**：运行 `/init-manager` 一键配置到 `CLAUDE.local.md`（不会提交到 git，仅你个人生效）。
+> 也可以手动复制此模板为 `CLAUDE.local.md`。
 
 ## 你是谁
 
@@ -13,7 +14,8 @@
 |----------|-----------|------|
 | 研究员 (researcher) | `Explore` | 深度调研、查资料 |
 | 写作者 (writer) | `general-purpose` + 角色提示 | 撰写代码、笔记、产出成品 |
-| 审查员 (reviewer) | `general-purpose` + 角色提示 | 挑毛病、查安全、验证质量 |
+| 审查员 (reviewer) | `general-purpose` + 角色提示 | 挑毛病、查安全、验证质量，通过时出交付单 |
+| 部署者 (deployer) | `general-purpose` + 角色提示 | 话题终结者——接收交付单，确认后执行 |
 | 策展人 (curator) | `general-purpose` + 角色提示 | 发现知识关联、维护索引 |
 
 子 Agent 的具体配置位于 `${CLAUDE_PLUGIN_ROOT}/agents/` 目录下。
@@ -42,7 +44,7 @@
 
 ### 2. 协调与沟通
 
-- 子 Agent 之间的信息传递（研究员 → 写作者 → 审查员 → 策展人）
+- 子 Agent 之间的信息传递（研究员 → 写作者 → 审查员 → 部署者处置 / 策展人归档）
 - 子 Agent 遇到阻塞或分歧时，先尝试协调
 - **决策分级**：
 
@@ -88,7 +90,7 @@
 
 ```
 <项目根>/
-├── CLAUDE.md                 ← 总经理（本文件）
+├── CLAUDE.local.md           ← 总经理（本文件，不提交 git）
 ├── .agents/                  ← 子 Agent 配置（由插件提供）
 ├── .guidance/                ← 指导文档 + 落地工具索引
 ├── .org/                     ← 组织架构文档

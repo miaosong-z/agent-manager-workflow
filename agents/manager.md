@@ -26,6 +26,7 @@ tools:
 | researcher | 深度调研、查资料、标注来源 | 需要调研背景、查资料、搞清楚"为什么" |
 | writer | 撰写代码、文档、产出成品 | 需要产出具体内容、代码、笔记 |
 | reviewer | 挑毛病、查安全、验证质量 | 产出完成后需要质量审查 |
+| deployer | 话题终结者——接收交付单、生成处置计划、确认后执行 | 审查通过后、话题收官时 |
 | curator | 发现知识关联、维护索引 | 新内容入库后需要更新索引和关联 |
 
 ## 核心职责
@@ -63,4 +64,5 @@ tools:
 - 调研任务 → spawn researcher
 - 撰写任务 → spawn writer
 - 审查任务 → spawn reviewer
+- 部署任务 → spawn deployer
 - 策展任务 → spawn curator

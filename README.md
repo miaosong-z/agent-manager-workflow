@@ -13,15 +13,16 @@
         │
         ├── 研究员   —— 查资料、做调研
         ├── 写作者   —— 写代码、写文档
-        ├── 审查员   —— 挑毛病、查安全
+        ├── 审查员   —— 挑毛病、查安全，通过时出交付单
+        ├── 部署者   —— 话题终结者，接收交付单，确认后执行
         └── 策展人   —— 维护知识库、发现关联
 ```
 
 你只需要说一句话，总经理自动判断该找谁、怎么做、要不要先确认再执行。
 
 - **1 个总经理**：负责任务调度、需求拆解、质量把控
-- **4 个员工 Agent**：研究员、写作者、审查员、策展人
-- **7 个中文命令**：/交办 /快办 /审查 /存档 /校准 /近况 /脑暴
+- **5 个员工 Agent**：研究员、写作者、审查员、部署者、策展人
+- **8 个中文命令**：/init-manager /交办 /快办 /审查 /存档 /校准 /近况 /脑暴
 
 ## 快速开始
 
@@ -79,6 +80,12 @@
 /近况
 ```
 
+### /init-manager — 初始化总经理
+一键配置总经理角色。自动检测项目身份冲突，引导选择 CLAUDE.local.md 方案（不污染 git）。
+```
+/init-manager
+```
+
 ### /脑暴 — 发散讨论
 纯思想实验，不写代码、不出方案、不做决策。适合聊想法、梳理想象、探索可能性。
 ```
@@ -102,7 +109,8 @@
 |-------|------|------|
 | researcher | sonnet | 深度调研、查资料、标注来源 |
 | writer | sonnet | 撰写代码和文档、产出成品 |
-| reviewer | sonnet | 挑毛病、查安全、验证逻辑 |
+| reviewer | sonnet | 挑毛病、查安全、验证逻辑，通过时出交付单 |
+| deployer | sonnet | 话题终结者，接收交付单，确认后执行 |
 | curator | haiku | 知识关联、索引维护 |
 
 > 架构师角色使用内置 Plan agent 类型（通过 Agent tool 指定 subagent_type: 'Plan'），不需要独立的 planner agent 文件。
@@ -117,9 +125,17 @@
 
 ## 进阶用法：让 Claude 成为常驻总经理
 
+### 一键初始化
+
+```bash
+/init-manager
+```
+
+自动检测项目状态，如有身份冲突会引导选择 CLAUDE.local.md 方案（不污染 git，仅你个人生效）。
+
 ### 默认模式 vs 进阶模式
 
-**默认模式（不复制模板）**——你是老板，需要时叫总经理过来：
+**默认模式（不初始化）**——你是老板，需要时叫总经理过来：
 
 ```
 你说：/交办 "帮我写一篇 Redis 持久化笔记"
@@ -133,10 +149,10 @@
 
 你需要总经理时才叫他，平常 Claude 就是 Claude。
 
-**进阶模式（复制 CLAUDE.md 模板）**——Claude 永久扮演总经理：
+**进阶模式（运行 /init-manager）**——Claude 永久扮演总经理，配置写入 CLAUDE.local.md（不污染 git）：
 
 ```bash
-cp ${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md.template ./CLAUDE.md
+/init-manager
 ```
 
 效果：
@@ -161,6 +177,10 @@ cp ${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md.template ./CLAUDE.md
 ```
 
 **一句话总结**：默认模式是"按需叫总经理"，进阶模式是"Claude 就是总经理"。后者不需要打 `/交办`，说话就行。
+
+### CLAUDE.md 加载顺序
+
+Claude Code 加载 CLAUDE.md 的顺序是：`~/.claude/CLAUDE.md` → `项目/CLAUDE.md` → `项目/CLAUDE.local.md`，后者覆盖前者。`CLAUDE.local.md` 不会被提交到 git，仅你个人生效，不污染团队仓库。
 
 ### 进阶模式的代价
 
