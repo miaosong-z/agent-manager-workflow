@@ -1,0 +1,31 @@
+{
+  "name": "agent-manager-workflow-marketplace",
+  "owner": {
+    "name": "jiajun zhang"
+  },
+  "metadata": {
+    "description": "AI 总经理 Agent 协作体系 - Marketplace。提供 Manager-Worker 模式的 Claude Code 团队框架。"
+  },
+  "plugins": [
+    {
+      "name": "agent-manager-workflow",
+      "source": "./",
+      "description": "AI 总经理工作流：完整的 Manager-Worker 模式 Agent 团队框架，含 1 个总经理 + 4 个专业子 Agent + 6 个调度 Skill。安装后即可使用中文命令。",
+      "version": "1.0.0",
+      "author": {
+        "name": "jiajun zhang"
+      },
+      "category": "workflow",
+      "tags": [
+        "agent",
+        "manager",
+        "workflow",
+        "collaboration",
+        "task-scheduling",
+        "knowledge-management",
+        "chinese"
+      ],
+      "license": "MIT"
+    }
+  ]
+}
