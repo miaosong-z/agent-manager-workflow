@@ -22,24 +22,32 @@
 
 - **1 个总经理**：负责任务调度、需求拆解、质量把控
 - **5 个员工 Agent**：研究员、写作者、审查员、部署者、策展人
-- **8 个中文命令**：/init-manager /交办 /快办 /审查 /存档 /校准 /近况 /脑暴
+- **7 个中文命令**：/交办 /快办 /审查 /存档 /校准 /近况 /脑暴
 
 ## 快速开始
 
+### 方式一：/plugin 命令安装（Claude Code CLI）
+
 ```bash
-# 添加 marketplace 并安装
 /plugin marketplace add miaosong-z/agent-manager-workflow
 /plugin install agent-manager-workflow
 ```
 
-安装完成即可使用：
+### 方式二：手动安装（IDE 插件 / Windows / 不支持 /plugin 时）
+
+直接对 Claude 说：
+
+> 帮我安装 agent-manager-workflow 插件。克隆 https://github.com/miaosong-z/agent-manager-workflow.git 到 ~/.claude/plugins/agent-manager-workflow，在 settings.json 的 enabledPlugins 中加入 "agent-manager-workflow@claude-plugins-official": true。
+
+### 安装后初始化
+
+重启 Claude Code，输入：
+
 ```
-/交办 "帮我调研 MCP 协议并写一篇笔记"
-/审查 src/main.py
-/近况
+/交办 "帮我初始化总经理角色，写入 CLAUDE.local.md"
 ```
 
-不需要额外配置。
+Claude 会自动检测项目状态、创建本地配置文件。`CLAUDE.local.md` 不提交 git，仅你个人生效。
 
 ## 命令详解
 
@@ -78,12 +86,6 @@
 展示项目仪表盘。
 ```
 /近况
-```
-
-### /init-manager — 初始化总经理
-一键配置总经理角色。自动检测项目身份冲突，引导选择 CLAUDE.local.md 方案（不污染 git）。
-```
-/init-manager
 ```
 
 ### /脑暴 — 发散讨论
@@ -125,13 +127,13 @@
 
 ## 进阶用法：让 Claude 成为常驻总经理
 
-### 一键初始化
+### 初始化
 
-```bash
-/init-manager
+```
+/交办 "帮我初始化总经理角色，写入 CLAUDE.local.md"
 ```
 
-自动检测项目状态，如有身份冲突会引导选择 CLAUDE.local.md 方案（不污染 git，仅你个人生效）。
+Claude 会检测项目状态，如有身份冲突将写入 CLAUDE.local.md 覆盖（不污染 git）。
 
 ### 默认模式 vs 进阶模式
 
@@ -149,11 +151,9 @@
 
 你需要总经理时才叫他，平常 Claude 就是 Claude。
 
-**进阶模式（运行 /init-manager）**——Claude 永久扮演总经理，配置写入 CLAUDE.local.md（不污染 git）：
+**进阶模式（初始化后）**——Claude 永久扮演总经理，配置写入 CLAUDE.local.md（不污染 git）：
 
-```bash
-/init-manager
-```
+使用 /交办 初始化后即可。
 
 效果：
 

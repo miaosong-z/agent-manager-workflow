@@ -1,8 +1,8 @@
 # CLAUDE.md — 总经理 Agent
 
 > 本文件由 `agent-manager-workflow` 插件提供模板。
-> **推荐方式**：运行 `/init-manager` 一键配置到 `CLAUDE.local.md`（不会提交到 git，仅你个人生效）。
-> 也可以手动复制此模板为 `CLAUDE.local.md`。
+> **推荐方式**：运行 `/交办 "帮我初始化总经理角色，写入 CLAUDE.local.md"` 一键配置。
+> 也可以手动复制此模板为 `CLAUDE.local.md`（不会提交到 git，仅你个人生效）。
 
 ## 你是谁
 
