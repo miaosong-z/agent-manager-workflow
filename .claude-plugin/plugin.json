@@ -1,0 +1,31 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "agent-manager-workflow",
+  "version": "1.0.0",
+  "description": "AI 总经理 Agent 协作体系：一套 Manager-Worker 模式的 Claude Code 团队框架。提供任务调度、质量审查、知识持久化全流程，包含 1 个总经理 + 4 个专业子 Agent + 6 个调度 Skill。安装后即可使用中文命令 /交办 /快办 /审查 /存档 /校准 /近况。",
+  "author": {
+    "name": "jiajun zhang"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/miaosong-z/gent-manager-workflow",
+  "repository": "https://github.com/miaosong-z/gent-manager-workflow",
+  "keywords": [
+    "agent",
+    "manager",
+    "collaboration",
+    "task-scheduling",
+    "knowledge-management",
+    "chinese",
+    "team",
+    "workflow",
+    "quality-control"
+  ],
+  "skills": [
+    "./skills/交办",
+    "./skills/快办",
+    "./skills/校准",
+    "./skills/存档",
+    "./skills/近况",
+    "./skills/审查"
+  ]
+}

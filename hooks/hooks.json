@@ -1,0 +1,35 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "检查当前项目根目录是否有 CLAUDE.md 文件。如果没有，简洁提示用户：agent-manager-workflow 插件已安装，可直接使用 /交办 命令开始体验。如果想长期使用总经理模式，可将 ${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md.template 复制为项目 CLAUDE.md。如果已有 CLAUDE.md 或之前已提示过，保持静默。"
+        }
+      ]
+    }
+  ],
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "回顾本次会话是否有重要产出（新建文件、重要决策等）。如果有，简洁提醒用户是否需要使用 /存档 持久化。一句话即可。如果没有明显产出，保持静默。"
+        }
+      ]
+    }
+  ],
+  "SubagentStop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "检查子 Agent 是否正常完成任务。如果子 Agent 报告了错误、阻塞或未完成状态，提醒主 Agent 关注。如果正常完成，不输出。"
+        }
+      ]
+    }
+  ]
+}
