@@ -1,35 +1,37 @@
 {
-  "SessionStart": [
-    {
-      "matcher": "*",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "检查当前项目是否已有总经理配置（~/.claude/CLAUDE.md 或 CLAUDE.local.md）。如果没有，简洁提示用户：agent-manager-workflow 插件已安装，可直接使用 /交办 命令开始体验。如想让 Claude 永久扮演总经理，运行 /交办 \"帮我初始化总经理角色，写入 CLAUDE.local.md\"。如果已配置或之前已提示过，保持静默。"
-        }
-      ]
-    }
-  ],
-  "Stop": [
-    {
-      "matcher": "*",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "回顾本次会话是否有重要产出（新建文件、重要决策等）。如果有，简洁提醒用户是否需要使用 /存档 持久化。一句话即可。如果没有明显产出，保持静默。"
-        }
-      ]
-    }
-  ],
-  "SubagentStop": [
-    {
-      "matcher": "*",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "检查子 Agent 是否正常完成任务。如果子 Agent 报告了错误、阻塞或未完成状态，提醒主 Agent 关注。如果正常完成，不输出。"
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "检查当前项目是否已有总经理配置（~/.claude/CLAUDE.md 或 CLAUDE.local.md）。如果没有，简洁提示用户：agent-manager-workflow 插件已安装，可直接使用 /交办 命令开始体验。如想让 Claude 永久扮演总经理，运行 /交办 \"帮我初始化总经理角色，写入 CLAUDE.local.md\"。如果已配置或之前已提示过，保持静默。"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "回顾本次会话是否有重要产出（新建文件、重要决策等）。如果有，简洁提醒用户是否需要使用 /存档 持久化。一句话即可。如果没有明显产出，保持静默。"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "检查子 Agent 是否正常完成任务。如果子 Agent 报告了错误、阻塞或未完成状态，提醒主 Agent 关注。如果正常完成，不输出。"
+          }
+        ]
+      }
+    ]
+  }
 }
