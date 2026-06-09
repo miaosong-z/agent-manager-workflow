@@ -1,8 +1,8 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "agent-manager-workflow",
-  "version": "1.0.0",
-  "description": "AI 总经理 Agent 协作体系：一套 Manager-Worker 模式的 Claude Code 团队框架。提供任务调度、质量审查、知识持久化全流程，包含 1 个总经理 + 4 个专业子 Agent + 7 个中文 Skill。安装后即可使用中文命令 /交办 /快办 /审查 /存档 /校准 /近况 /脑暴。",
+  "version": "2.0.0",
+  "description": "AI 总经理 Agent 协作体系：一套 Manager-Worker 模式的 Claude Code 团队框架。v2.0 新增 6 阶段固定流程、用户级配置、/update 升级命令。包含 1 个总经理 + 5 个专业子 Agent + 8 个中文 Skill。安装后使用 /交办 初始化，即可使用 /快办 /审查 /存档 /校准 /近况 /脑暴 /update。",
   "author": {
     "name": "jiajun zhang"
   },
@@ -27,6 +27,7 @@
     "./skills/存档",
     "./skills/近况",
     "./skills/审查",
-    "./skills/脑暴"
+    "./skills/脑暴",
+    "./skills/update"
   ]
 }

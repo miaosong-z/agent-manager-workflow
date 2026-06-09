@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "prompt",
-          "prompt": "检查当前项目根目录是否有 CLAUDE.md 文件。如果没有，简洁提示用户：agent-manager-workflow 插件已安装，可直接使用 /交办 命令开始体验。如果想长期使用总经理模式，可将 ${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md.template 复制为项目 CLAUDE.md。如果已有 CLAUDE.md 或之前已提示过，保持静默。"
+          "prompt": "检查当前项目是否已有总经理配置（~/.claude/CLAUDE.md 或 CLAUDE.local.md）。如果没有，简洁提示用户：agent-manager-workflow 插件已安装，可直接使用 /交办 命令开始体验。如想让 Claude 永久扮演总经理，运行 /交办 \"帮我初始化总经理角色，写入 CLAUDE.local.md\"。如果已配置或之前已提示过，保持静默。"
         }
       ]
     }
