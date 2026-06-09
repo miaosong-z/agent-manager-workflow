@@ -57,7 +57,7 @@ claude plugin install agent-manager-workflow
 在终端运行：
 
 ```bash
-claude plugin update agent-manager-workflow
+claude plugin update agent-manager-workflow@agent-manager-workflow-marketplace
 ```
 
 更新后重启 Claude Code，首次运行 `/交办` 会检测到版本变化并提醒：
