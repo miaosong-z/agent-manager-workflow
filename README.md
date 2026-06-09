@@ -72,6 +72,22 @@ claude plugin update agent-manager-workflow@agent-manager-workflow-marketplace
 - **逐项确认** — 逐个文件决定
 - **自定义流程** — 自己设计工作流
 
+## 如何卸载
+
+彻底清理插件及用户数据：
+
+```bash
+claude plugin uninstall agent-manager-workflow@agent-manager-workflow-marketplace
+claude plugin marketplace remove agent-manager-workflow-marketplace
+rm -rf ~/.claude/agent-manager
+```
+
+如之前通过手动方式安装过（git clone），额外执行：
+
+```bash
+rm -rf ~/.claude/plugins/agent-manager-workflow
+```
+
 ## 命令详解
 
 ### /交办 — 主入口
