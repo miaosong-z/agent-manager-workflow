@@ -29,5 +29,6 @@
     "./skills/审查",
     "./skills/脑暴",
     "./skills/update"
-  ]
+  ],
+  "hooks": {}
 }
