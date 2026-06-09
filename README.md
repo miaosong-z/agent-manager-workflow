@@ -35,15 +35,14 @@
 
 ## 快速开始
 
-在 Claude Code 对话中输入：
+在终端运行：
 
-```
-# 添加 marketplace 并安装
-/plugin marketplace add miaosong-z/agent-manager-workflow
-/plugin install agent-manager-workflow
+```bash
+claude plugin marketplace add https://github.com/miaosong-z/agent-manager-workflow.git
+claude plugin install agent-manager-workflow
 ```
 
-安装完成即可使用：
+安装后在对话中即可使用：
 
 ```
 /交办 "帮我调研 MCP 协议并写一篇笔记"
@@ -55,14 +54,13 @@
 
 ## 如何更新
 
-已在用旧版？在 Claude Code 对话中输入即可更新：
+在终端运行：
 
-```
-/plugin uninstall agent-manager-workflow
-/plugin install agent-manager-workflow
+```bash
+claude plugin update agent-manager-workflow
 ```
 
-更新后，首次运行 `/交办` 会检测到版本变化并提醒：
+更新后重启 Claude Code，首次运行 `/交办` 会检测到版本变化并提醒：
 
 ```
 插件已更新到 v2.0.0，你的配置基于 v1.0.0。运行 /update 查看更新内容。
