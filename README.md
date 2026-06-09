@@ -35,7 +35,9 @@
 
 ## 快速开始
 
-```bash
+在 Claude Code 对话中输入：
+
+```
 # 添加 marketplace 并安装
 /plugin marketplace add miaosong-z/agent-manager-workflow
 /plugin install agent-manager-workflow
@@ -50,6 +52,27 @@
 ```
 
 首次 `/交办` 会自动初始化 `~/.claude/agent-manager/`，包含默认流程和用户配置。
+
+## 如何更新
+
+已在用旧版？在 Claude Code 对话中输入即可更新：
+
+```
+/plugin uninstall agent-manager-workflow
+/plugin install agent-manager-workflow
+```
+
+更新后，首次运行 `/交办` 会检测到版本变化并提醒：
+
+```
+插件已更新到 v2.0.0，你的配置基于 v1.0.0。运行 /update 查看更新内容。
+```
+
+此时运行 `/update`，会展示新旧流程的差异，你可以选择：
+- **全部覆盖** — 使用新版流程
+- **保持当前** — 继续用你优化过的流程，不再提醒
+- **逐项确认** — 逐个文件决定
+- **自定义流程** — 自己设计工作流
 
 ## 命令详解
 
