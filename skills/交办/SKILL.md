@@ -6,7 +6,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch, WebFetch
 context: fork
 metadata:
   author: agent-manager-workflow
-  version: "2.1.0"
+  version: "2.1.1"
 ---
 
 当用户交办一个任务时，按以下步骤执行。

@@ -81,6 +81,20 @@ agent-manager-workflow:交办 "帮我调研 MCP 协议并写一篇笔记"
 | agent-manager-workflow:脑暴 | 纯发散讨论 | "AI agent 记忆系统怎么设计？" |
 | agent-manager-workflow:update | 检查更新、对比差异 | |
 
+## 从 v1.x 升级
+
+旧版（v1.x）用户无法直接 update，需先迁移到 marketplace 安装方式：
+
+```bash
+# 1. 移除旧安装残留
+rm -rf ~/.claude/plugins/agent-manager-workflow
+# 2. 添加 marketplace 并安装
+claude plugin marketplace add https://github.com/miaosong-z/agent-manager-workflow.git
+claude plugin install agent-manager-workflow@agent-manager-workflow-marketplace
+```
+
+安装后重启 Claude Code 即可。以后只需：
+
 ## 如何更新
 
 在终端运行：
