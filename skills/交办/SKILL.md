@@ -2,12 +2,11 @@
 name: 交办任务
 description: 将用户请求按6阶段工作流执行（需求澄清→技术方案→Spec→实现→审查→交付）。当用户说"帮我做/实现/开发/重构/优化/写..."或提到"工作流/走流程/交办"时触发。
 license: MIT
-disable-model-invocation: true
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch, WebFetch
 context: fork
 metadata:
   author: agent-manager-workflow
-  version: "2.0.1"
+  version: "2.0.2"
 ---
 
 当用户交办一个任务时，按以下步骤执行。
