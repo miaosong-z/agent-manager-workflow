@@ -33,7 +33,9 @@
 - **流程执行状态追踪**：每个任务维护 `流程执行状态.json`，中断后可续接
 - **偏好自动积累**：manager 自动识别你的长期偏好并记录
 
-## 快速开始
+## 安装与维护
+
+### 首次安装
 
 在终端运行：
 
@@ -54,7 +56,37 @@ agent-manager-workflow:交办 "帮我调研 MCP 协议并写一篇笔记"
 
 首次运行会自动初始化 `~/.claude/agent-manager/`，包含默认流程和用户配置。
 
-## 自然语言触发
+### 从 v1.x 升级
+
+旧版（v1.x）用户无法直接 update，需先迁移到 marketplace 安装方式：
+
+```bash
+rm -rf ~/.claude/plugins/agent-manager-workflow
+claude plugin marketplace add https://github.com/miaosong-z/agent-manager-workflow.git
+claude plugin install agent-manager-workflow@agent-manager-workflow-marketplace
+```
+
+### 更新
+
+在终端运行：
+
+```bash
+claude plugin update agent-manager-workflow@agent-manager-workflow-marketplace
+```
+
+更新后重启 Claude Code，下次交办时会检测到版本变化并提醒运行 update。
+
+### 卸载
+
+```bash
+claude plugin uninstall agent-manager-workflow@agent-manager-workflow-marketplace
+claude plugin marketplace remove agent-manager-workflow-marketplace
+rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
+```
+
+## 使用方式
+
+### 自然语言触发
 
 不需要记命令。以下自然语言都能触发交办流程：
 
@@ -66,7 +98,7 @@ agent-manager-workflow:交办 "帮我调研 MCP 协议并写一篇笔记"
 - "帮我开发..."
 - "走工作流处理..."
 
-## 命令列表
+### 命令列表
 
 所有命令格式为 `agent-manager-workflow:<命令名>`：
 
@@ -80,46 +112,6 @@ agent-manager-workflow:交办 "帮我调研 MCP 协议并写一篇笔记"
 | agent-manager-workflow:近况 | 展示项目仪表盘 | |
 | agent-manager-workflow:脑暴 | 纯发散讨论 | "AI agent 记忆系统怎么设计？" |
 | agent-manager-workflow:update | 检查更新、对比差异 | |
-
-## 从 v1.x 升级
-
-旧版（v1.x）用户无法直接 update，需先迁移到 marketplace 安装方式：
-
-```bash
-# 1. 移除旧安装残留
-rm -rf ~/.claude/plugins/agent-manager-workflow
-# 2. 添加 marketplace 并安装
-claude plugin marketplace add https://github.com/miaosong-z/agent-manager-workflow.git
-claude plugin install agent-manager-workflow@agent-manager-workflow-marketplace
-```
-
-安装后重启 Claude Code 即可。以后只需：
-
-## 如何更新
-
-在终端运行：
-
-```bash
-claude plugin update agent-manager-workflow@agent-manager-workflow-marketplace
-```
-
-更新后重启 Claude Code，下次交办时会检测到版本变化并提醒运行 update。
-
-## 如何卸载
-
-彻底清理插件及用户数据：
-
-```bash
-claude plugin uninstall agent-manager-workflow@agent-manager-workflow-marketplace
-claude plugin marketplace remove agent-manager-workflow-marketplace
-rm -rf ~/.claude/agent-manager
-```
-
-如之前通过手动方式安装过（git clone），额外执行：
-
-```bash
-rm -rf ~/.claude/plugins/agent-manager-workflow
-```
 
 ## 工作流
 

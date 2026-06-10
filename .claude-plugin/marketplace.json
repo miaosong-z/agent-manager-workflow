@@ -11,7 +11,7 @@
       "name": "agent-manager-workflow",
       "source": "./",
       "description": "AI 总经理工作流 v2.0：6 阶段固定流程（需求澄清→方案→Spec→实现→审查→交付），用户级配置 + 升级机制。含 1 个总经理 + 5 个专业子 Agent + 8 个中文 Skill。",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "jiajun zhang"
       },
