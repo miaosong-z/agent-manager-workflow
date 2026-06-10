@@ -2,7 +2,7 @@
 
 > 一键安装，即刻拥有一个懂调度、会审查、能持久化的 AI 总经理团队。
 
-## 这是什么？
+## 1. 这是什么？
 
 你是**老板**，Claude 是你的**总经理**，总经理下面有一群**员工**：
 
@@ -24,7 +24,7 @@
 - **5 个员工 Agent**：研究员、写作者、审查员、部署者、策展人
 - **8 个命令**：agent-manager-workflow:交办 / 快办 / 审查 / 存档 / 校准 / 近况 / 脑暴 / update
 
-## v2.0 新特性
+## 2. v2.0 新特性
 
 - **6 阶段固定流程**：需求澄清 → 技术方案 → Spec 撰写 → 代码实现 → 代码审查 → 交付通知，每阶段 ⛔ 确认门禁
 - **用户级配置**：`~/.claude/agent-manager/` 存放流程、偏好、决策、校准，换项目跟你走
@@ -33,9 +33,9 @@
 - **流程执行状态追踪**：每个任务维护 `流程执行状态.json`，中断后可续接
 - **偏好自动积累**：manager 自动识别你的长期偏好并记录
 
-## 安装与维护
+## 3. 安装与维护
 
-### 首次安装
+### 3.1. 首次安装
 
 在终端运行：
 
@@ -56,7 +56,7 @@ agent-manager-workflow:交办 "帮我调研 MCP 协议并写一篇笔记"
 
 首次运行会自动初始化 `~/.claude/agent-manager/`，包含默认流程和用户配置。
 
-### 从 v1.x 升级
+### 3.2. 从 v1.x 升级
 
 旧版（v1.x）用户无法直接 update，需先迁移到 marketplace 安装方式：
 
@@ -66,7 +66,7 @@ claude plugin marketplace add https://github.com/miaosong-z/agent-manager-workfl
 claude plugin install agent-manager-workflow@agent-manager-workflow-marketplace
 ```
 
-### 更新
+### 3.3. 更新
 
 在终端运行：
 
@@ -76,7 +76,7 @@ claude plugin update agent-manager-workflow@agent-manager-workflow-marketplace
 
 更新后重启 Claude Code，下次交办时会检测到版本变化并提醒运行 update。
 
-### 卸载
+### 3.4. 卸载
 
 ```bash
 claude plugin uninstall agent-manager-workflow@agent-manager-workflow-marketplace
@@ -84,9 +84,9 @@ claude plugin marketplace remove agent-manager-workflow-marketplace
 rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 ```
 
-## 使用方式
+## 4. 使用方式
 
-### 自然语言触发
+### 4.1. 自然语言触发
 
 不需要记命令。以下自然语言都能触发交办流程：
 
@@ -98,7 +98,7 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 - "帮我开发..."
 - "走工作流处理..."
 
-### 命令列表
+### 4.2. 命令列表
 
 所有命令格式为 `agent-manager-workflow:<命令名>`：
 
@@ -113,7 +113,7 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 | agent-manager-workflow:脑暴 | 纯发散讨论 | "AI agent 记忆系统怎么设计？" |
 | agent-manager-workflow:update | 检查更新、对比差异 | |
 
-## 工作流
+## 5. 工作流
 
 ```
 自然语言触发
@@ -128,7 +128,7 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 
 每阶段产出存入 `.claude/tasks/<task-name>/`，`流程执行状态.json` 实时追踪进度。
 
-## 用户级 vs 项目级
+## 6. 用户级 vs 项目级
 
 | 层级 | 位置 | 存放内容 |
 |------|------|---------|
@@ -138,7 +138,7 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 
 流程优先级：项目级 > 用户级 > 插件默认。对话中优化流程时，manager 会询问"当前项目 or 全部项目"。
 
-## 子 Agent 团队
+## 7. 子 Agent 团队
 
 | Agent | 模型 | 职责 |
 |-------|------|------|
@@ -150,7 +150,7 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 
 > 架构师角色使用内置 Plan agent 类型（通过 Agent tool 指定 subagent_type: 'Plan'），不需要独立的 planner agent 文件。
 
-## 决策分级
+## 8. 决策分级
 
 | 级别 | 范围 | 处理 |
 |------|------|------|
@@ -158,9 +158,9 @@ rm -rf ~/.claude/agent-manager ~/.claude/plugins/agent-manager-workflow
 | B 级 | 常规协调 | 校准后授权 |
 | C 级 | 执行细节 | 自行决定 |
 
-## 进阶用法：让 Claude 成为常驻总经理
+## 9. 进阶用法：让 Claude 成为常驻总经理
 
-### 默认模式 vs 进阶模式
+### 9.1. 默认模式 vs 进阶模式
 
 **默认模式**——你是老板，需要时用命令或自然语言触发：
 
@@ -187,12 +187,12 @@ agent-manager-workflow:交办 "帮我初始化总经理角色，写入 CLAUDE.lo
 
 **一句话总结**：默认模式是"按需叫总经理"，进阶模式是"Claude 就是总经理"。
 
-### 进阶模式的代价
+### 9.2. 进阶模式的代价
 
 - Claude 会更有"管理感"——更多汇报、更多确认、更结构化
 - 建议在**主力工作项目**中启用，临时项目保持默认模式
 
-## 常见问题
+## 10. 常见问题
 
 **Q: 命令为什么带命名空间前缀？**
 A: 这是 Claude Code 插件系统的标准行为，`agent-manager-workflow:交办` 确保不发生命名冲突。也可以用自然语言直接触发，不需要记命令格式。
@@ -209,6 +209,6 @@ A: 可以。对话中说"以后 XX 阶段不需要确认了"，manager 会自动
 **Q: 换项目后偏好还在吗？**
 A: 在。用户级配置（流程、偏好、决策）存于 `~/.claude/agent-manager/`，跟人不跟项目。
 
-## 许可证
+## 11. 许可证
 
 MIT

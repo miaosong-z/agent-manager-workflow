@@ -7,7 +7,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 context: fork
 metadata:
   author: agent-manager-workflow
-  version: "2.1.2"
+  version: "2.1.3"
 ---
 
 当用户执行 `/update` 时，按以下步骤检查插件更新。
